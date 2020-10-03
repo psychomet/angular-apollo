@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+@mixin card($theme){
+  $primary: map-get($theme, primary);
+  mat-card{
+    box-shadow: none !important;
+    border-radius: 10px !important;
+    .mat-card-header{
+      .mat-card-title{
+        color: mat-color($primary) !important;
+        font-size: 18px !important;
+        line-height: 27px;
+      }
+    }
+
+  }
+}

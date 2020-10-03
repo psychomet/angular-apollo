@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+@mixin sidenav($theme){
+  $primary: map-get($theme, primary);
+  .mat-drawer{
+    background-color: mat-color($primary) !important;
+    border: none !important;
+    &_header{
+      padding: 16px;
+    }
+    &_title{
+      color: mat-color($primary,200);
+      font-size: 19px;
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin: 0 16px;
+    }
+    .mat-drawer-inner-container{
+      background: white;
+      border-radius: 10px 10px 0 0;
+    }
+    .mat-list-item-content{
+      padding: 0 50px !important;
+    }
+  }
+}

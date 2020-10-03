@@ -1,0 +1,8 @@
+@mixin button(){
+  $success: #219254;
+  button.success{
+    span{
+      color: $success !important;
+    }
+  }
+}

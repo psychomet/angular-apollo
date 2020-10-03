@@ -1,0 +1,8 @@
+@mixin toolbar(){
+  .mat-toolbar.mat-primary{
+    button span{
+      color: #d7d7d7;
+    }
+
+  }
+}
