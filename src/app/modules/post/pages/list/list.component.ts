@@ -12,7 +12,7 @@ import {MatPaginator} from '@angular/material/paginator';
 export class ListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource = new MatTableDataSource<any>();
-  displayedColumns: string[] = ['id', 'title','edit','delete'];
+  displayedColumns: string[] = ['id', 'name','age','breed','edit','delete'];
 
   constructor(private apollo: Apollo) { }
 
@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
     })
       .valueChanges
       .subscribe(({data}) => {
-        this.dataSource = new MatTableDataSource<any>(data.posts.data);
+        this.dataSource = new MatTableDataSource<any>(data.cats);
         setTimeout(() => this.dataSource.paginator = this.paginator);
       });
   }

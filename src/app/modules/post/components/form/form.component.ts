@@ -24,15 +24,17 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.stFormGroup = this.formBuilder.group({
-      title: ['', Validators.required],
-      body: ['', Validators.required],
+      name: ['', Validators.required],
+      age: ['', Validators.required],
+      breed: ['', Validators.required],
     });
     this.activatedRoute.params.subscribe(params => {
       if (params.id){
         this.isEdit = true;
         const { data } = this.activatedRoute.snapshot.data["post"];
-        this.stFormGroup.get('title').setValue(data.post.title);
-        this.stFormGroup.get('body').setValue(data.post.body);
+        this.stFormGroup.get('name').setValue(data.cat.name);
+        this.stFormGroup.get('age').setValue(data.cat.age);
+        this.stFormGroup.get('breed').setValue(data.cat.breed);
       }
     });
   }
@@ -45,7 +47,7 @@ export class FormComponent implements OnInit {
         mutation: updatePost,
         variables: {
           input: form,
-          id: params['id']
+          id: String(params['id'])
         }
       }).subscribe(({ data }) => {
         console.log('updated', data);

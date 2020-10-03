@@ -6,7 +6,7 @@ import { LayoutComponent } from './layout.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'post',
+    redirectTo: 'statistics',
     pathMatch: 'full'
   },
   {
@@ -16,6 +16,10 @@ const routes: Routes = [
       {
         path: 'post',
         loadChildren: () => import('./post/post.module').then(m => m.PostModule)
+      },
+      {
+        path: 'statistics',
+        loadChildren: () => import('./statistics/statistics.module').then(m => m.StatisticsModule)
       }
     ]
   }

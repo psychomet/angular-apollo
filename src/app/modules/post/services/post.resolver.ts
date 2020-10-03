@@ -10,8 +10,9 @@ export class PostResolver implements Resolve<any> {
   constructor(private apollo: Apollo) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+    // console.log('run');
       return this.apollo.query<any>({
-      query:  findOnePost(route.params['id'])
+      query:  findOnePost(String(route.params['id']))
     });
   }
 

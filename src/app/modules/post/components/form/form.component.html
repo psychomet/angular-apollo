@@ -27,12 +27,16 @@
     <mat-card-content>
       <div fxLayout="column">
         <mat-form-field appearance="fill">
-          <mat-label>Title</mat-label>
-          <input matInput formControlName="title" required>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required>
         </mat-form-field>
         <mat-form-field appearance="fill">
-          <mat-label>Body</mat-label>
-          <textarea matInput formControlName="body" rows="5" required></textarea>
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age" type="number" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Breed</mat-label>
+          <textarea matInput formControlName="breed" rows="5" required></textarea>
         </mat-form-field>
       </div>
     </mat-card-content>

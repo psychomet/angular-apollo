@@ -8,51 +8,49 @@ export interface PostContext {
 
 
 export const findAllPost = gql`
-    query (
-        $options: PageQueryOptions
-    ) {
-        posts(options: $options) {
-            data {
-                id
-                title
-            }
-            meta {
-                totalCount
-            }
+    query {
+        cats{
+            id
+            name
+            age
+            breed
         }
     }
 `;
 
 export const createPost = gql`
-    mutation ($input: CreatePostInput!) {
-        createPost(input: $input) {
+    mutation ($input: CatInput!) {
+        createCat(input: $input) {
             id
-            title
-            body
+            name
+            age
+            breed
         }
     }
 `;
 
 export const updatePost = gql`
     mutation (
-        $id: ID!,
-        $input: UpdatePostInput!
+        $id: String!,
+        $input: CatInput!
     ) {
-        updatePost(id: $id, input: $input) {
+        updateCat(id: $id, input: $input) {
             id
-            title
-            body
+            name
+            age
+            breed
         }
     }
 `;
 
-export const findOnePost = (id) => {
+export const findOnePost = (id: string) => {
   return gql`
       query {
-          post(id: ${id}) {
+          cat(id: "${id}") {
               id
-              title
-              body
+              name
+              age
+              breed
           }
       }
   `
@@ -60,8 +58,13 @@ export const findOnePost = (id) => {
 
 export const deletePost = gql`
     mutation (
-        $id: ID!
+        $id: String!
     ) {
-        deletePost(id: $id)
+        deleteCat(id: $id){
+            id
+            name
+            age
+            breed
+        }
     }
 `;
